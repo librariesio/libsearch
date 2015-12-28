@@ -15,10 +15,11 @@ command :search do |c|
   c.example 'description', 'command example'
   c.option '--platform PLATFORM', String, 'search a particular package manager'
   c.option '--language LANGUAGE', String, 'search for libraries written in a language'
+  c.option '--license LICENSE', String, 'search for libraries with a given license'
   c.option '--debug', 'output helpful debug info'
   c.action do |args, options|
     puts
-    search_url = "https://libraries.io/api/search?q=#{args.first}&platforms=#{options.platform}&languages=#{options.language}"
+    search_url = "https://libraries.io/api/search?q=#{args.first}&platforms=#{options.platform}&languages=#{options.language}&licenses=#{options.license}"
     if options.debug
       puts "debug: #{search_url}"
       puts
